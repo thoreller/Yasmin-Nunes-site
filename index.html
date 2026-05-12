@@ -1,19 +1,20 @@
-<!doctype html>
+html_content = """<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yasmin Nunes Rosa — Portfólio</title>
+  <title>Sobre Viver Podcast</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="iconteste.png" type="image/x-icon">
   <style>
     :root{
-      --bg:#fdfcfb;
-      --soft:#fbeee7;
-      --accent:#d6b0a8;
-      --dark-accent: #c2978f;
-      --muted:#7c6865;
-      --text:#2c2c2c;
+      /* Paleta Oficial "SobreViver" */
+      --bg: #FDFCF8; /* Fundo bem claro puxado pro creme */
+      --soft: #F0ECD9; /* Creme exato do texto da logo */
+      --accent: #5C6042; /* Verde Oliva da logo */
+      --dark-accent: #454831; /* Verde Oliva escuro para hover */
+      --muted: #787C60; /* Verde acinzentado para textos secundários */
+      --text: #2C2E20; /* Texto quase preto, harmonizado com o verde */
       --glass: rgba(255,255,255,0.7);
     }
     *{box-sizing:border-box}
@@ -23,7 +24,7 @@
     body{margin:0;font-family:Inter,system-ui,Arial; background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
     
     header{
-        background: rgba(255,255,255,0.9); 
+        background: rgba(253,252,248,0.9); 
         backdrop-filter: blur(10px); 
         position: sticky; 
         top: 0; 
@@ -42,7 +43,7 @@
     }
 
     .brand{display:flex;align-items:center;gap:16px}
-    .logo{width:60px;height:60px;border-radius:14px;background:linear-gradient(135deg,var(--soft),#fff);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(203,159,156,0.1)}
+    .logo{width:60px;height:60px;border-radius:14px;background:linear-gradient(135deg,var(--soft),#fff);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
     .logo svg{width:32px;height:32px;fill:none; stroke:var(--accent); stroke-width:2;}
     .brand h1{font-family:Playfair Display,serif;margin:0;font-size:22px;letter-spacing:0.5px; color:var(--text);}
     .brand p{margin:0;font-size:13px;color:var(--muted); text-transform: uppercase; letter-spacing: 0.8px;}
@@ -63,36 +64,20 @@
     .cta-row{display:flex;gap:16px;margin-top:24px}
     
     .btn{padding:14px 22px;border-radius:12px;border:1px solid transparent;text-decoration:none;font-weight:600;display:inline-block; font-size: 16px; transition: all 0.3s ease; cursor: pointer;}
-    .btn.primary{background:var(--accent);color:white; box-shadow: 0 6px 16px rgba(214, 176, 168, 0.4);}
-    .btn.primary:hover{background: var(--dark-accent); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(214, 176, 168, 0.6);}
+    .btn.primary{background:var(--accent);color:white; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);}
+    .btn.primary:hover{background: var(--dark-accent); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);}
     .btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.1); color:var(--muted);}
     .btn.ghost:hover{border-color: var(--accent); color: var(--accent); transform: translateY(-2px);}
-    /* Estilos específicos para botões de contato (footer/seção contato) */
-    .btn.whatsapp-contact { background: #25D366; color: white; box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3); }
-    .btn.whatsapp-contact:hover { background: #1ebc57; transform: translateY(-2px); }
+    
+    /* Cores atualizadas dos contatos */
+    .btn.spotify-contact { background: #1DB954; color: white; box-shadow: 0 6px 16px rgba(29, 185, 84, 0.3); }
+    .btn.spotify-contact:hover { background: #1aa34a; transform: translateY(-2px); }
 
     .card{background:var(--glass);padding:25px;border-radius:16px;box-shadow:0 8px 24px rgba(44,44,44,0.06); border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px);}
     
-    .profile-photo{height:480px;border-radius:16px;background:linear-gradient(180deg, var(--soft), #fff);display:flex;align-items:flex-end;justify-content:center;padding:20px;position:relative;overflow:hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.08);}
-    .profile-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(0.01) saturate(1.1);border-radius:inherit; transform: scale(1.02); transition: transform 0.4s ease;}
-    .profile-photo img:hover{transform: scale(1.05);}
-    .profile-caption{
-        position:absolute;
-        bottom:20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%; 
-        max-width: 300px;
-        background:rgba(255,255,255,0.9);
-        padding:10px 16px;
-        border-radius:12px;
-        font-size:14px;
-        color:var(--muted); 
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-        backdrop-filter: blur(4px);
-        text-align: center;
-    }
-
+    .profile-photo{height:480px;border-radius:16px;background:var(--soft);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.08); padding: 0;}
+    .profile-photo video{width:100%;height:100%;object-fit:cover;display:block;}
+    
     main{padding:30px 20px 80px}
     .section{max-width:1100px;margin:50px auto}
     .two-col{display:grid;grid-template-columns:1fr 380px;gap:40px}
@@ -106,37 +91,12 @@
     .stat-inline { text-align: left; }
 
     .services-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:18px; margin-top: 25px;}
-    .service{padding:20px;border-radius:14px;background:#fff;border:1px solid rgba(0,0,0,0.06); box-shadow: 0 6px 18px rgba(0,0,0,0.04); transition: transform 0.3s ease;}
+    .service{padding:25px;border-radius:14px;background:#fff;border:1px solid rgba(0,0,0,0.06); box-shadow: 0 6px 18px rgba(0,0,0,0.04); transition: transform 0.3s ease; display:flex; flex-direction:column; justify-content:space-between;}
     .service:hover{transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08);}
-    .service div:first-child{font-size:16px;font-weight:700; color:var(--text); margin-bottom: 8px;}
-    .service div:nth-child(2){margin-top:0;color:var(--muted); font-size:15px; line-height: 1.6;}
-    .price{font-weight:700;color:var(--accent); font-size: 18px; margin-top: 15px;}
-
-    .logo-bar {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
-        align-items: center;
-        justify-content: center;
-        margin-top: 40px;
-        padding: 30px;
-        border-radius: 16px;
-        background: var(--soft);
-    }
-    .logo-item {
-        height: 55px;
-        width: auto;
-        filter: grayscale(100%) opacity(0.6);
-        transition: filter 0.3s ease, transform 0.3s ease;
-    }
-    .logo-item:hover {
-        filter: grayscale(0%) opacity(1);
-        transform: scale(1.05);
-    }
 
     .portfolio {
         display:grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap:18px; 
         margin-top: 25px;
     }
@@ -147,6 +107,7 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         position: relative;
         aspect-ratio: 9/16;
+        display: block;
     }
     .folio-item:hover{
         transform: translateY(-5px);
@@ -167,6 +128,7 @@
         padding: 40px 20px 20px;
         color: white;
         font-weight: 600;
+        text-align: center;
     }
     
     .cta-banner {
@@ -211,21 +173,25 @@
         transition: all 0.3s;
         border: 1px solid rgba(0,0,0,0.05);
     }
-    .contact-btn.whatsapp { background: #E6FFFA; color: #008069; border-color: #25D366; }
-    .contact-btn.whatsapp:hover { background: #25D366; color: white; }
+    
+    .contact-btn.spotify { background: #E8F8EE; color: #1DB954; border-color: #1DB954; }
+    .contact-btn.spotify:hover { background: #1DB954; color: white; }
+    
+    .contact-btn.youtube { background: #FFF0F0; color: #FF0000; border-color: #FF0000; }
+    .contact-btn.youtube:hover { background: #FF0000; color: white; }
+    
     .contact-btn.instagram { background: #FFF5F5; color: #C13584; border-color: #E1306C; }
     .contact-btn.instagram:hover { background: #E1306C; color: white; }
+    
     .contact-btn.tiktok { background: #F7F7F7; color: #000000; border-color: #000000; }
     .contact-btn.tiktok:hover { background: #000000; color: white; }
-    .contact-btn.email { background: #F0F4FF; color: #4A5568; border-color: #CBD5E0; }
-    .contact-btn.email:hover { background: #4A5568; color: white; }
+    
     .contact-btn svg { width: 20px; height: 20px; fill: currentColor; }
-
 
     @media(max-width:980px){
       .hero{grid-template-columns:1fr; gap: 40px; text-align: center;}
       .hero-left{order:2; margin: 0 auto;}
-      .profile-photo{height:380px}
+      .profile-photo{height:400px}
       .two-col{grid-template-columns:1fr; gap: 30px;}
       .portfolio{grid-template-columns:repeat(2,1fr)}
       h2{font-size:42px;}
@@ -255,18 +221,19 @@
         <div class="brand">
         <div class="logo" aria-hidden>
             <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 20 L32 32 L44 20 M32 32 L32 44" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="32" cy="32" r="20" stroke="var(--accent)" stroke-width="2" fill="none" />
+                <path d="M28 24 L40 32 L28 40 Z" fill="var(--accent)" />
             </svg>
         </div>
         <div>
-            <h1>Yasmin Nunes Rosa</h1>
-            <p>Conteúdo de beleza • Maquiadora • Criadora</p>
+            <h1>Sobre Viver</h1>
+            <p>Podcast • Psicologia • Entrevistas</p>
         </div>
         </div>
         <nav>
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#portfolio">Portfólio</a>
+        <a href="#sobre">Sobre o podcast</a>
+        <a href="#episodios">Episódios</a>
+        <a href="#shorts">Shorts</a>
         <a class="cta" href="#contato">Contato</a>
         </nav>
     </div>
@@ -274,181 +241,170 @@
 
   <section class="hero">
     <div class="hero-left">
-      <span class="kicker">Mídia Kit 2025</span>
-      <h2>Olá — eu sou Yasmin. <br/>Beleza real, leve e com propósito.</h2>
-      <p class="lead">Sou mineira, graduanda em Psicologia e maquiadora desde 2018. Crio conteúdo para inspirar, ensinar e me conectar com outras mulheres — construindo uma comunidade engajada, as “Bunitas”.</p>
+      <span class="kicker">A psicologia acontece na prática</span>
+      <h2>Olá — eu sou Yasmin. <br/>Bem-vindos ao Sobre Viver Podcast.</h2>
+      <p class="lead">Sou graduanda do 8º período de Psicologia e criadora do Podcast Sobre Viver. O projeto surgiu da necessidade de ir além da teoria de sala de aula, conversando com outros profissionais em seus ambientes de atuação para aprofundarmos conhecimentos.</p>
       <div class="cta-row">
-        <a class="btn primary" href="https://wa.me/5533984021496" target="_blank">Trabalhe comigo</a>
-        <a class="btn ghost" href="#servicos">Ver serviços</a>
+        <a class="btn primary" href="https://open.spotify.com/show/0aOGuEkNcgFSkZclVdeTyW?si=b13a43fa3a8d42a5" target="_blank">Ouvir no Spotify</a>
+        <a class="btn ghost" href="https://www.youtube.com/@yasminnunesrosaa/videos" target="_blank">Assistir no YouTube</a>
       </div>
 
       <div style="margin-top:35px" class="card">
         <div class="hero-stats-container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
           <div>
-            <small style="color:var(--muted);font-weight:700;display:block;margin-bottom:12px; text-transform: uppercase; letter-spacing: 0.5px;">Números Atuais</small>
+            <small style="color:var(--muted);font-weight:700;display:block;margin-bottom:12px; text-transform: uppercase; letter-spacing: 0.5px;">Disponível nas plataformas</small>
             <div style="display:flex;gap:30px;">
               <div class="stat-inline">
-                <div style="font-weight:700; font-size: 24px; color: var(--text);">10,5k+</div>
-                <small style="color:var(--muted); font-size:13px;">TikTok</small>
+                <div style="font-weight:700; font-size: 20px; color: var(--text);">Spotify</div>
+                <small style="color:var(--muted); font-size:13px;">Áudio</small>
               </div>
               <div class="stat-inline">
-                <div style="font-weight:700; font-size: 24px; color: var(--text);">4k+</div>
-                <small style="color:var(--muted); font-size:13px;">Instagram</small>
+                <div style="font-weight:700; font-size: 20px; color: var(--text);">YouTube</div>
+                <small style="color:var(--muted); font-size:13px;">Vídeo</small>
               </div>
             </div>
           </div>
           <div class="hero-stats-info" style="text-align:right;color:var(--muted);font-size:14px;flex-shrink:0; line-height: 1.6;">
-            <div><b>Base:</b> Governador Valadares, MG</div>
-            <div><b>Foco:</b> Beleza e Autoestima</div>
+            <div><b>Apresentação:</b> Yasmin Nunes Rosa</div>
+            <div><b>Foco:</b> Saúde Mental e Psicologia</div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="card profile-photo">
-      <img src="fotoperfil.png" alt="Foto de Yasmin Nunes Rosa"/>
-      <div class="profile-caption">Yasmin Nunes Rosa — Maquiadora & Criadora</div>
+      <video src="LUTOmaternidade.mp4" controls autoplay muted loop playsinline></video>
     </div>
   </section>
 
   <main>
     <section id="sobre" class="section about two-col">
       <div>
-        <h3>Sobre mim</h3>
-        <p>Meu nome é Yasmin Nunes Rosa, sou mineira, cristã, graduanda em Psicologia, apaixonada por livros, cafés e o universo da beleza. Desde 2018, transformei meu amor pela maquiagem em profissão, usando as redes sociais como ferramenta para inspirar, ensinar e me conectar com outras mulheres — construindo uma comunidade engajada — as “Bunitas”.</p>
-        <p>Com foco em conteúdo autêntico e criativo, estou em busca de novas marcas e empresas que desejam crescer junto com esse público apaixonado por beleza real, leve e feita com propósito.</p>
+        <h3>Sobre o Podcast</h3>
+        <p>O <b>Sobre Viver</b> nasceu de um questionamento que tive ao longo dos meus anos na faculdade: percebi que apenas a teoria não era suficiente para o aprendizado completo. Por mais que tivéssemos estágios e supervisões, a troca real de experiências era essencial.</p>
+        <p>Foi então que decidi entrevistar profissionais da psicologia dentro de seus próprios cenários de trabalho, exatamente onde a psicologia acontece no dia a dia. Este é um espaço dedicado para quem gosta de assuntos relacionados à saúde mental, para psicólogos e futuros psis, como eu!</p>
       </div>
 
       <aside>
         <div class="card">
-          <h4 style="margin:0 0 10px;font-family:Playfair Display,serif; font-size: 20px; color:var(--text);">Conteúdo com Propósito</h4>
-          <p style="color:var(--muted);margin:0 0 15px; font-size: 15px; line-height: 1.6;">Desde 2019, participo da criação de conteúdos para a <a href="#" class="link-destaque" target="_blank"><b>Vila Bunita Makeup</b></a>, colaborando com campanhas locais e com o GV Shopping, gerando visibilidade e ótimos resultados.</p>
-          <a class="btn ghost" href="#portfolio" style="display:block;margin-top:16px;text-align:center">Ver colaborações</a>
+          <h4 style="margin:0 0 10px;font-family:Playfair Display,serif; font-size: 20px; color:var(--text);">Para quem é o podcast?</h4>
+          <p style="color:var(--muted);margin:0 0 15px; font-size: 15px; line-height: 1.6;">Nosso foco principal são estudantes, psicólogos formados e qualquer pessoa apaixonada por saúde mental, oferecendo um mergulho na prática e nas vivências do consultório.</p>
+          <a class="btn ghost" href="#episodios" style="display:block;margin-top:16px;text-align:center">Ver episódios</a>
         </div>
       </aside>
     </section>
-
-    <section id="portfolio" class="section">
-        <h3>Portfólio & Colaborações</h3>
-        <p style="color:var(--muted);margin-top:8px; font-size: 17px; max-width: 60ch;">Explore alguns dos projetos de sucesso e parcerias estratégicas que desenvolvi ao longo da minha jornada no universo da beleza.</p>
-        
-        <div class="portfolio">
-            <div class="folio-item">
-                <video src="pantene_video.mp4" poster="fotoperfil.png" autoplay muted loop playsinline></video>
-                <div class="overlay">Pantene</div>
-            </div>
-            <div class="folio-item">
-                <video src="nossaotica_video.mp4" poster="otica_foto.jpg" autoplay muted loop playsinline></video>
-                <div class="overlay">Nossa Ótica</div>
-            </div>
-            <div class="folio-item">
-                <video src="cabelo_video.mp4" autoplay muted loop playsinline></video>
-            <div class="overlay">Palmira</div>
-            </div>
-              <div class="folio-item">
-                <video src="palmira_video.mp4" autoplay muted loop playsinline></video>
-                <div class="overlay">Palmira</div>
-            </div>
-            <div class="folio-item">
-                <video src="sandra_video.mp4" autoplay muted loop playsinline></video>
-                <div class="overlay">Sandra Millard</div>
-            </div>
-            <div class="folio-item">
-                <img src="colab_foto1.png" alt="Colaboração com Vila Bunita Makeup" loading="lazy" />
-                <div class="overlay">Vila Bunita Makeup</div>
-            </div>
-            <div class="folio-item">
-                <img src="colab__foto4.png" alt="Ação de Natal no GV Shopping" loading="lazy" />
-                <div class="overlay">Produção de Conteúdo</div>
-            </div>
-             <div class="folio-item">
-                <img src="colab__foto2.png" alt="Evento em Loja" loading="lazy" />
-                 <div class="overlay">Eventos & Parcerias</div>
-            </div>
-             <div class="folio-item">
-                <img src="colab__foto3.png" alt="Gravação de Conteúdo" loading="lazy" />
-                 <div class="overlay">Produção de Conteúdo</div>
-            </div>
-        </div>
-
-        <div class="logo-bar">
-            <img src="pantene_logo.jpg" alt="Logo Pantene" class="logo-item">
-            <img src="palmira_logo.jpeg" alt ="Logo Palmira" class = "logo-item">
-            <img src="nossaotica_logo.png" alt="Logo Nossa Otica" class="logo-item">
-            <img src="sandra_logo.jpg" alt="Logo Sandra Millard" class="logo-item">
-            <img src ="Gvshopping.png" alt="logo Gv Shopping" class="logo-item">
-            <img src ="vilabunita.png" alt="logo Vila Bunita" class="logo-item">
-        </div>
-    </section>
     
-    <section id="servicos" class="section">
-        <h3>Investimentos & Serviços</h3>
-        <p style="color:var(--muted);margin-top:8px; font-size: 17px; max-width: 60ch;">Serviços prestados para divulgação em redes sociais — stories, reels e pacotes mensais personalizados para a sua marca.</p>
+    <section id="episodios" class="section">
+        <h3>Episódios já publicados</h3>
+        <p style="color:var(--muted);margin-top:8px; font-size: 17px; max-width: 60ch;">Acompanhe os nossos bate-papos com profissionais da área, disponíveis em áudio e vídeo.</p>
  
         <div class="services-grid">
             <div class="service">
-                <div>Sequência de 3 a 6 Stories</div>
-                <div>Criação de stories dinâmicos e autênticos, apresentando seu produto ou serviço de forma envolvente.</div>
-                <!-- <div class="price">R$ 150,00</div> -->
+                <div>
+                    <div style="color:var(--muted); font-size:12px; font-weight:700; text-transform:uppercase; margin-bottom:8px; letter-spacing:1px;">Tema: O que é O Sobre Viver Podcast</div>
+                    <div style="font-size:18px; font-weight:700; color:var(--text); margin-bottom: 8px;">EP #00 • Não espere se sentir pronta para começar </div>
+                    <div style="color:var(--muted); font-size:14px; line-height: 1.5;">Um pouco da minha história e da minha relação com a psicologia desde a minha infância até a vida adulta, incluindo a minha jornada na graduação.
+
+
+Também conto sobre a proposta do podcast, os temas que vamos explorar e as conversas que virão com convidados ao longo dos próximos episódios.
+
+
+Falo sobre algo que muitas vezes nos paralisa: a espera pelo momento perfeito e começar, mesmo sem se sentir pronta, pode transformar caminhos..</div>
+                </div>
+                <div style="margin-top:20px; display:flex; gap:10px;">
+                    <a href="https://open.spotify.com/episode/5TX44p9lQIARtAnAz3Ze6q?si=673e674f656f42fc" target="_blank" class="btn primary" style="padding:8px 15px; font-size:14px; flex:1; text-align:center;">Spotify</a>
+                    <a href="https://www.youtube.com/watch?v=PEuWmOzbxUY&t=1s" target="_blank" class="btn ghost" style="padding:8px 15px; font-size:14px; flex:1; text-align:center;">YouTube</a>
+                </div>
             </div>
+
             <div class="service">
-                <div>Stories + Reels Criativo</div>
-                <div>Combo estratégico: sequência de stories e um reels cativante para o feed, com foco na sua mensagem.</div>
-                <!-- <div class="price">R$ 200,00</div> -->
+                <div>
+                    <div style="color:var(--muted); font-size:12px; font-weight:700; text-transform:uppercase; margin-bottom:8px; letter-spacing:1px;">Tema: Saúde Mental nas Empresas</div>
+                    <div style="font-size:18px; font-weight:700; color:var(--text); margin-bottom: 8px;">EP #01 • Perdas e mudanças na infância com Ananda Moraes</div>
+                    <div style="color:var(--muted); font-size:14px; line-height: 1.5;">No episódio #01 do Sobre Viver Podcast, eu recebo Ananda Moraes, psicóloga clínica infantil, que atua na abordagem da Análise do Comportamento e também é professora de graduação.
+                        Convidada: Ananda Moraes, psicóloga clínica infantil que atua na abordagem da Análise do Comportamento e professora de graduação.</div>
+                        Falamos sobre um tema sensível e, muitas vezes, pouco nomeado: as perdas e mudanças na infância. Experiências que podem parecer pequenas aos olhos de fora, mas que têm impactos profundos na forma como as crianças sentem, se relaciona e desenvolve.</div>
+                </div>
+                <div style="margin-top:20px; display:flex; gap:10px;">
+                    <a href="https://open.spotify.com/episode/5JtGL7p9AhgOuVkY9welSX?si=aab06813301049f7" target="_blank" class="btn primary" style="padding:8px 15px; font-size:14px; flex:1; text-align:center;">Spotify</a>
+                    <a href="https://www.youtube.com/watch?v=P3oSV9tTLRU&t=1s" target="_blank" class="btn ghost" style="padding:8px 15px; font-size:14px; flex:1; text-align:center;">YouTube</a>
+                </div>
             </div>
+
             <div class="service">
-                <div>Pacote Mensal Personalizado</div>
-                <div>Conteúdo contínuo: pacote mensal com 4 sequências de 6 stories (1x/semana), garantindo presença constante.</div>
-                <!-- <div class="price">R$ 500,00</div> -->
+                <div>
+                    <div style="color:var(--muted); font-size:12px; font-weight:700; text-transform:uppercase; margin-bottom:8px; letter-spacing:1px;">Tema: Maternidade | Saúde Mental | Mulher </div>
+                    <div style="font-size:18px; font-weight:700; color:var(--text); margin-bottom: 8px;">EP #02 • Maternidade: Quem cuida de quem cuida? com Lídia Brandes</div>
+                    <div style="color:var(--muted); font-size:14px; line-height: 1.5;">Convidada: Lídia Brandes, psicóloga perinatal, que atua na abordagem da Psicanálise.</div> 
+                    Durante o episódio, falamos sobre as transformações emocionais da maternidade, a sobrecarga invisível, a culpa, o cansaço e a importância de olhar também para quem está cuidando.</div>
+                </div>
+                <div style="margin-top:20px; display:flex; gap:10px;">
+                    <a href="https://open.spotify.com/episode/2rYOZtElFkISC7H13PsT0G?si=f69024b1063f4b8b" target="_blank" class="btn primary" style="padding:8px 15px; font-size:14px; flex:1; text-align:center;">Spotify</a>
+                    <a href="https://www.youtube.com/watch?v=WJATMwgMaoE&t=336s" target="_blank" class="btn ghost" style="padding:8px 15px; font-size:14px; flex:1; text-align:center;">YouTube</a>
+                </div>
             </div>
-            <div class="service">
-                <div>Reels Criativo</div>
-                <div>Vídeo criativo gravado e editado, otimizado para engajamento no feed e alcance orgânico.</div>
-                <!-- <div class="price">R$ 150,00</div> -->
-            </div>
-            <div class="service">
-                <div>Uso de Imagens</div>
-                <div>Todas as imagens produzidas são entregues com autorização de uso para sua marca, sem custo adicional.</div>
-                <!-- <div class="price">Incluso nos pacotes</div> -->
-            </div>
-            <div class="service">
-                <div>Consultoria Estratégica</div>
-                <div>Sessão de consultoria focada em planejamento de conteúdo e estratégias de posicionamento (por hora).</div>
-                <!-- <div class="price">Sob consulta</div> -->
-            </div>
+        </div>
+    </section>
+
+    <section id="shorts" class="section">
+        <h3>Shorts & Destaques</h3>
+        <p style="color:var(--muted);margin-top:8px; font-size: 17px; max-width: 60ch;">Cortes dos melhores momentos do podcast.</p>
+        
+        <div class="portfolio">
+            <a href="https://www.youtube.com/@yasminnunesrosaa/shorts" target="_blank" class="folio-item">
+                <video src="Oquesobreviver.mp4" autoplay muted loop playsinline></video>
+                <div class="overlay">Assistir no YouTube</div>
+            </a>
+            
+            <a href="https://www.youtube.com/@yasminnunesrosaa/shorts" target="_blank" class="folio-item">
+                <img src="fotoperfil.png" alt="Corte do Podcast" loading="lazy" />
+                <div class="overlay">Assistir no YouTube</div>
+            </a>
+            
+            <a href="https://www.youtube.com/@yasminnunesrosaa/shorts" target="_blank" class="folio-item">
+                <img src="fotoperfil.png" alt="Corte do Podcast" loading="lazy" />
+                <div class="overlay">Assistir no YouTube</div>
+            </a>
         </div>
     </section>
 
     <div class="cta-banner">
-        <h3>Vamos elevar o nível da sua marca?</h3>
-        <p>Tenho o pacote ideal para o seu momento. Vamos combinar os valores e montar uma estratégia juntos. Entre em contato!</p>
-        <a class="btn primary" href="https://wa.me/5533984021496" target="_blank">Solicitar Orçamento</a>
+        <h3>Acompanhe novos lançamentos</h3>
+        <p>Inscreva-se no canal do YouTube e siga o podcast no Spotify para não perder as próximas entrevistas exclusivas.</p>
+        <div style="display:flex; justify-content:center; gap: 15px;">
+             <a class="btn primary" href="https://open.spotify.com/show/0aOGuEkNcgFSkZclVdeTyW?si=b13a43fa3a8d42a5" target="_blank">Seguir no Spotify</a>
+             <a class="btn ghost" href="https://www.youtube.com/@yasminnunesrosaa/videos" target="_blank" style="background:#fff;">Inscrever-se</a>
+        </div>
     </div>
 
     <section id="contato" class="section">
         <div class="card" style="width:100%; text-align:center; padding: 50px 30px;">
-            <h3 style="font-family:Playfair Display,serif; font-size: 32px; margin-top:0;">Vamos trabalhar juntas?</h3>
+            <h3 style="font-family:Playfair Display,serif; font-size: 32px; margin-top:0;">Redes Sociais</h3>
             
             <p style="color:var(--muted); font-size: 18px; max-width: 700px; margin: 15px auto 35px; text-wrap: balance;">
-                Interessado em parcerias, orçamentos personalizados ou simplesmente quer bater um papo? Clique em um dos canais abaixo.
+                Siga o Sobre Viver nas redes para conferir os bastidores e participar da nossa comunidade.
             </p>
             
             <div class="contact-links-grid">
-                <a href="https://wa.me/5533984021496?text=Yasmin%2C%20entrando%20em%20contato%20via%20portf%C3%B3lio" target="_blank" class="contact-btn whatsapp">
-                    <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-67.6-9.5-97.2-27.2l-6.7-4-71.6 18.7 19.3-68.6-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-                    WhatsApp
+                
+                <a href="https://open.spotify.com/show/0aOGuEkNcgFSkZclVdeTyW?si=b13a43fa3a8d42a5" target="_blank" class="contact-btn spotify">
+                    <svg viewBox="0 0 496 512"><path d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm100.7 364.9c-4.2 0-6.8-1.5-10.8-3.8-29.3-17.6-66.2-21.6-109.6-11.8-6.9 1.6-13.8 2.4-20.7 2.4-14.8 0-26.7-10.2-26.7-25 0-14.1 10.6-25 24.3-27.1 52.3-8.3 95.8-2.8 131.6 17 5.7 3.1 9.4 8.6 9.4 14.8 0 12.5-9.3 22.4-22.1 22.4zm23-53.7c-5 0-9.2-2.1-13.3-4.7-36.1-22.4-89.9-28.8-132.8-15.6-7.8 2.4-15.9 3.6-24.1 3.6-17.5 0-32-12.7-32-30.1 0-16.7 12.2-30 28.5-33.8 52.5-12.2 113.8-6.1 157.1 20.8 6.5 4 10.7 10.2 10.7 17.5 0 16-11.3 28.7-26.1 28.7zm28.3-59.2c-5.9 0-10.9-2.5-15.8-5.6-43.5-27-111.8-34.9-160.2-18.7-9.3 3.1-18.9 4.7-28.7 4.7-20.8 0-38-15.2-38-35.8 0-19.8 14.5-35.7 33.8-39.9 58.6-12.7 136-4.6 187.3 27.2 7.7 4.8 12.6 12.2 12.6 20.9 0 19-13.3 34-31 34z"/></svg>
+                    Spotify
                 </a>
-                <a href="https://www.instagram.com/yasminnunesrosaa/" target="_blank" class="contact-btn instagram">
+                
+                <a href="https://www.youtube.com/@yasminnunesrosaa/videos" target="_blank" class="contact-btn youtube">
+                    <svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+                    YouTube
+                </a>
+
+                <a href="https://www.instagram.com/podcastsobreviver/" target="_blank" class="contact-btn instagram">
                     <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9 26.3 26.2 58 34.4 93.9 36.2 37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
                     Instagram
                 </a>
-                <a href="https://www.tiktok.com/@yasminnunesrosa" target="_blank" class="contact-btn tiktok">
+                
+                <a href="https://www.tiktok.com/@podcastsobreviver_" target="_blank" class="contact-btn tiktok">
                     <svg viewBox="0 0 448 512"><path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.25V349.38A162.6 162.6 0 1 1 185 188.31V278.2a74.62 74.62 0 1 0 52.23 71.18V0h88a121.18 121.18 0 0 0 121.48 127.35v82.55z"/></svg>
                     TikTok
-                </a>
-                <a href="mailto:yasminnunesparcerias@gmail.com" class="contact-btn email">
-                    <svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zM0 112.5C0 105.6 5.6 100 12.5 100h2.1L240 231.2 487.4 100h2.1c6.9 0 12.5 5.6 12.5 12.5V120L256 251.2 0 120v-7.5zm0 287.9V160l240 132.8L487.4 160h.2c5.4 0 10.3 2.1 14.1 5.9L256 416 0 165.9v234.5c0 13-10.5 23.5-23.5 23.5H488c-13 0-23.5-10.5-23.5-23.5z"/></svg>
-                    Email
                 </a>
             </div>
         </div>
@@ -458,37 +414,41 @@
   <footer>
     <div class="footer-grid">
       <div class="footer-col">
-        <h5 style="font-family:Playfair Display,serif; font-size: 20px;">Yasmin Nunes Rosa</h5>
-        <p style="color:var(--muted); font-size:14px; line-height:1.6;">Criadora de conteúdo e maquiadora focada em realçar a beleza real e fortalecer a autoestima feminina.</p>
+        <h5 style="font-family:Playfair Display,serif; font-size: 20px;">Sobre Viver</h5>
+        <p style="color:var(--muted); font-size:14px; line-height:1.6;">Onde a psicologia acontece na prática. Entrevistas sobre saúde mental com profissionais da área.</p>
       </div>
       
       <div class="footer-col">
         <h5>Navegação</h5>
         <div class="footer-links">
-            <a href="#sobre">Sobre</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#portfolio">Portfólio</a>
+            <a href="#sobre">Sobre o podcast</a>
+            <a href="#episodios">Episódios</a>
+            <a href="#shorts">Shorts</a>
             <a href="#contato">Contato</a>
         </div>
       </div>
 
       <div class="footer-col">
-        <h5>Contato</h5>
+        <h5>Redes</h5>
         <div class="footer-contact-item">
-            <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-67.6-9.5-97.2-27.2l-6.7-4-71.6 18.7 19.3-68.6-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-            <span>(33) 98402-1496</span>
+            <svg viewBox="0 0 496 512"><path d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm100.7 364.9c-4.2 0-6.8-1.5-10.8-3.8-29.3-17.6-66.2-21.6-109.6-11.8-6.9 1.6-13.8 2.4-20.7 2.4-14.8 0-26.7-10.2-26.7-25 0-14.1 10.6-25 24.3-27.1 52.3-8.3 95.8-2.8 131.6 17 5.7 3.1 9.4 8.6 9.4 14.8 0 12.5-9.3 22.4-22.1 22.4zm23-53.7c-5 0-9.2-2.1-13.3-4.7-36.1-22.4-89.9-28.8-132.8-15.6-7.8 2.4-15.9 3.6-24.1 3.6-17.5 0-32-12.7-32-30.1 0-16.7 12.2-30 28.5-33.8 52.5-12.2 113.8-6.1 157.1 20.8 6.5 4 10.7 10.2 10.7 17.5 0 16-11.3 28.7-26.1 28.7zm28.3-59.2c-5.9 0-10.9-2.5-15.8-5.6-43.5-27-111.8-34.9-160.2-18.7-9.3 3.1-18.9 4.7-28.7 4.7-20.8 0-38-15.2-38-35.8 0-19.8 14.5-35.7 33.8-39.9 58.6-12.7 136-4.6 187.3 27.2 7.7 4.8 12.6 12.2 12.6 20.9 0 19-13.3 34-31 34z"/></svg>
+            <span>Spotify</span>
         </div>
         <div class="footer-contact-item">
-             <svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zM0 112.5C0 105.6 5.6 100 12.5 100h2.1L240 231.2 487.4 100h2.1c6.9 0 12.5 5.6 12.5 12.5V120L256 251.2 0 120v-7.5zm0 287.9V160l240 132.8L487.4 160h.2c5.4 0 10.3 2.1 14.1 5.9L256 416 0 165.9v234.5c0 13-10.5 23.5-23.5 23.5H488c-13 0-23.5-10.5-23.5-23.5z"/></svg>
-            <span>yasminnunesparcerias@gmail.com</span>
+             <svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+            <span>YouTube</span>
         </div>
       </div>
     </div>
     
     <div class="copyright">
-        © 2025 Yasmin Nunes Rosa • Criatividade & Propósito
+        © 2026 Sobre Viver Podcast • Yasmin Nunes Rosa
     </div>
   </footer>
 
 </body>
-</html>
+</html>"""
+
+with open("/mnt/data/index-sobreviver.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+print("File created: /mnt/data/index-sobreviver.html")
