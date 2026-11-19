@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sobre Viver Podcast</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" href="iconteste.png" type="image/x-icon">
+  <link rel="shortcut icon" href="Logo_Sobreviver.png" type="image/x-icon">
   <style>
     :root{
       /* Paleta Oficial "SobreViver" */
@@ -43,8 +43,24 @@
     }
 
     .brand{display:flex;align-items:center;gap:16px}
-    .logo{width:60px;height:60px;border-radius:14px;background:linear-gradient(135deg,var(--soft),#fff);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
-    .logo svg{width:32px;height:32px;fill:none; stroke:var(--accent); stroke-width:2;}
+    .logo{
+        width:60px;
+        height:60px;
+        border-radius:14px;
+        background:var(--accent);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        box-shadow:0 4px 12px rgba(0,0,0,0.08);
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+    .logo img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+    }
     .brand h1{font-family:Playfair Display,serif;margin:0;font-size:22px;letter-spacing:0.5px; color:var(--text);}
     .brand p{margin:0;font-size:13px;color:var(--muted); text-transform: uppercase; letter-spacing: 0.8px;}
 
@@ -56,7 +72,7 @@
     nav a.cta:hover{background: var(--dark-accent);}
     nav a.cta::after {display: none;}
 
-    .hero{display:grid;grid-template-columns:1fr 480px;gap:60px;align-items:center;padding:60px 20px; max-width: 1200px; margin: 0 auto;}
+    .hero{display:grid;grid-template-columns:1fr 440px;gap:60px;align-items:center;padding:60px 20px; max-width: 1200px; margin: 0 auto;}
     .hero-left{max-width:760px}
     .kicker{display:inline-block;background:var(--soft);padding:8px 14px;border-radius:999px;font-weight:600;color:var(--muted);font-size:14px; text-transform: uppercase; letter-spacing: 0.5px;}
     h2{font-family:Playfair Display,serif;font-size:52px;margin:20px 0 12px;line-height:1.1; color:var(--text);}
@@ -69,14 +85,52 @@
     .btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.1); color:var(--muted);}
     .btn.ghost:hover{border-color: var(--accent); color: var(--accent); transform: translateY(-2px);}
     
-    /* Cores atualizadas dos contatos */
     .btn.spotify-contact { background: #1DB954; color: white; box-shadow: 0 6px 16px rgba(29, 185, 84, 0.3); }
     .btn.spotify-contact:hover { background: #1aa34a; transform: translateY(-2px); }
 
     .card{background:var(--glass);padding:25px;border-radius:16px;box-shadow:0 8px 24px rgba(44,44,44,0.06); border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px);}
     
-    .profile-photo{height:480px;border-radius:16px;background:var(--soft);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.08); padding: 0;}
-    .profile-photo video{width:100%;height:100%;object-fit:cover;display:block;}
+    /* =====================================================================
+       OPÇÕES DE RECORTE PARA A FOTO DA YASMIN (ENSAIO.jpg)
+       Para testar outro formato, comente a opção ativa e descomente outra!
+       ===================================================================== */
+    .profile-photo{
+        width: 380px;
+        height: 500px;
+        background: var(--soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(44, 46, 32, 0.08);
+        padding: 0;
+        margin: 0 auto;
+
+        /*border-radius: 20px;*/
+        /* OPÇÃO 1 (ATIVA): Recorte Assimétrico / Folha (elegante e moderno) */
+        border-radius: 180px 24px 180px 24px;
+
+        /* OPÇÃO 2: Redondo / Círculo (descomente as 3 linhas abaixo e comente a Opção 1) */
+        /* width: 420px; height: 420px; border-radius: 50%; */
+
+        /* OPÇÃO 3: Janela / Arco (parecido com o site da Lídia) */
+        /* border-radius: 240px 240px 18px 18px; */
+
+        /* OPÇÃO 4: Forma Orgânica (estilo editorial suave) */
+        /* border-radius: 62% 38% 55% 45% / 48% 54% 46% 52%; */
+    }
+    .profile-photo img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 20%; /* Mantém o rosto dela bem enquadrado */
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    .profile-photo:hover img{
+        transform: scale(1.03);
+    }
     
     main{padding:30px 20px 80px}
     .section{max-width:1100px;margin:50px auto}
@@ -90,9 +144,90 @@
     .stats{display:flex;gap:20px;margin-top:25px;flex-wrap: wrap;}
     .stat-inline { text-align: left; }
 
-    .services-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:18px; margin-top: 25px;}
-    .service{padding:25px;border-radius:14px;background:#fff;border:1px solid rgba(0,0,0,0.06); box-shadow: 0 6px 18px rgba(0,0,0,0.04); transition: transform 0.3s ease; display:flex; flex-direction:column; justify-content:space-between;}
-    .service:hover{transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08);}
+    /* Grade e Cards de Episódios com Capa */
+    .services-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+        gap:24px; 
+        margin-top: 25px;
+    }
+    .service{
+        padding: 0;
+        border-radius:16px;
+        background:#fff;
+        border:1px solid rgba(0,0,0,0.06); 
+        box-shadow: 0 6px 18px rgba(0,0,0,0.04); 
+        transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        display:flex; 
+        flex-direction:column; 
+        overflow: hidden;
+    }
+    .service:hover{
+        transform: translateY(-5px); 
+        box-shadow: 0 12px 28px rgba(0,0,0,0.09);
+    }
+    .episode-cover{
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        background: var(--soft);
+    }
+    .episode-cover img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+    .service:hover .episode-cover img{
+        transform: scale(1.04);
+    }
+    .episode-body{
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+    }
+    .episode-theme{
+        color:var(--muted); 
+        font-size:11px; 
+        font-weight:700; 
+        text-transform:uppercase; 
+        margin-bottom:8px; 
+        letter-spacing:1px;
+    }
+    .episode-title{
+        font-size:18px; 
+        font-weight:700; 
+        color:var(--text); 
+        margin-bottom: 10px;
+        line-height: 1.35;
+    }
+    .episode-desc{
+        color:var(--muted); 
+        font-size:14px; 
+        line-height: 1.55;
+    }
+    .episode-desc p{
+        margin: 0 0 10px;
+    }
+    .episode-desc p:last-child{
+        margin-bottom: 0;
+    }
+    .episode-actions{
+        margin-top: 22px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(0,0,0,0.05);
+        display: flex;
+        gap: 10px;
+    }
+    .episode-actions .btn{
+        padding: 10px 14px;
+        font-size: 14px;
+        flex: 1;
+        text-align: center;
+    }
 
     .portfolio {
         display:grid;
@@ -191,7 +326,7 @@
     @media(max-width:980px){
       .hero{grid-template-columns:1fr; gap: 40px; text-align: center;}
       .hero-left{order:2; margin: 0 auto;}
-      .profile-photo{height:400px}
+      .profile-photo{height:420px; max-width: 380px;}
       .two-col{grid-template-columns:1fr; gap: 30px;}
       .portfolio{grid-template-columns:repeat(2,1fr)}
       h2{font-size:42px;}
@@ -219,11 +354,8 @@
   <header>
     <div class="header-content">
         <div class="brand">
-        <div class="logo" aria-hidden>
-            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="32" cy="32" r="20" stroke="var(--accent)" stroke-width="2" fill="none" />
-                <path d="M28 24 L40 32 L28 40 Z" fill="var(--accent)" />
-            </svg>
+        <div class="logo">
+            <img src="Logo_Sobreviver.png" alt="Logo Sobre Viver Podcast" />
         </div>
         <div>
             <h1>Sobre Viver</h1>
@@ -243,7 +375,7 @@
     <div class="hero-left">
       <span class="kicker">A psicologia acontece na prática</span>
       <h2>Olá — eu sou Yasmin. <br/>Bem-vindos ao Sobre Viver Podcast.</h2>
-      <p class="lead">Sou graduanda do 8º período de Psicologia e criadora do Podcast Sobre Viver. O projeto surgiu da necessidade de ir além da teoria de sala de aula, conversando com outros profissionais em seus ambientes de atuação para aprofundarmos conhecimentos.</p>
+      <p class="lead">Sou graduanda do 10º período de Psicologia e criadora do Podcast Sobre Viver. O projeto surgiu da necessidade de ir além da teoria de sala de aula, conversando com outros profissionais em seus ambientes de atuação para aprofundarmos conhecimentos.</p>
       <div class="cta-row">
         <a class="btn primary" href="https://open.spotify.com/show/0aOGuEkNcgFSkZclVdeTyW?si=b13a43fa3a8d42a5" target="_blank">Ouvir no Spotify</a>
         <a class="btn ghost" href="https://www.youtube.com/@yasminnunesrosaa/videos" target="_blank">Assistir no YouTube</a>
@@ -272,8 +404,8 @@
       </div>
     </div>
 
-    <div class="card profile-photo">
-      <video src="LUTOmaternidade.mp4" controls autoplay muted loop playsinline></video>
+    <div class="profile-photo">
+      <img src="EMANNE-21.jpg" alt="Yasmin Nunes Rosa — Sobre Viver Podcast" />
     </div>
   </section>
 
@@ -299,50 +431,113 @@
         <p style="color:var(--muted);margin-top:8px; font-size: 17px; max-width: 60ch;">Acompanhe os nossos bate-papos com profissionais da área, disponíveis em áudio e vídeo.</p>
  
         <div class="services-grid">
+            <!-- EP #00 -->
             <div class="service">
-                <div>
-                    <div style="color:var(--muted); font-size:12px; font-weight:700; text-transform:uppercase; margin-bottom:8px; letter-spacing:1px;">Tema: O que é O Sobre Viver Podcast</div>
-                    <div style="font-size:18px; font-weight:700; color:var(--text); margin-bottom: 8px;">EP #00 • Não espere se sentir pronta para começar </div>
-                    <div style="color:var(--muted); font-size:14px; line-height: 1.5;">Um pouco da minha história e da minha relação com a psicologia desde a minha infância até a vida adulta, incluindo a minha jornada na graduação.
-
-
-Também conto sobre a proposta do podcast, os temas que vamos explorar e as conversas que virão com convidados ao longo dos próximos episódios.
-
-
-Falo sobre algo que muitas vezes nos paralisa: a espera pelo momento perfeito e começar, mesmo sem se sentir pronta, pode transformar caminhos..</div>
+                <div class="episode-cover">
+                    <img src="EP0.png" alt="Capa EP #00 — Não espere se sentir pronta para começar" loading="lazy" />
                 </div>
-                <div style="margin-top:20px; display:flex; gap:10px;">
-                    <a href="https://open.spotify.com/episode/5TX44p9lQIARtAnAz3Ze6q?si=673e674f656f42fc" target="_blank" class="btn primary" style="padding:8px 15px; font-size:14px; flex:1; text-align:center;">Spotify</a>
-                    <a href="https://www.youtube.com/watch?v=PEuWmOzbxUY&t=1s" target="_blank" class="btn ghost" style="padding:8px 15px; font-size:14px; flex:1; text-align:center;">YouTube</a>
+                <div class="episode-body">
+                    <div>
+                        <div class="episode-theme">Tema: O que é O Sobre Viver Podcast</div>
+                        <div class="episode-title">EP #00 • Não espere se sentir pronta para começar</div>
+                        <div class="episode-desc">
+                            <p>Um pouco da minha história e da minha relação com a psicologia desde a minha infância até a vida adulta, incluindo a minha jornada na graduação.</p>
+                            <p>Também conto sobre a proposta do podcast, os temas que vamos explorar e as conversas que virão com convidados ao longo dos próximos episódios.</p>
+                            <p>Falo sobre algo que muitas vezes nos paralisa: a espera pelo momento perfeito e como começar, mesmo sem se sentir pronta, pode transformar caminhos.</p>
+                        </div>
+                    </div>
+                    <div class="episode-actions">
+                        <a href="https://open.spotify.com/episode/5TX44p9lQIARtAnAz3Ze6q?si=673e674f656f42fc" target="_blank" class="btn primary">Spotify</a>
+                        <a href="https://www.youtube.com/watch?v=PEuWmOzbxUY&t=1s" target="_blank" class="btn ghost">YouTube</a>
+                    </div>
                 </div>
             </div>
 
+            <!-- EP #01 -->
             <div class="service">
-                <div>
-                    <div style="color:var(--muted); font-size:12px; font-weight:700; text-transform:uppercase; margin-bottom:8px; letter-spacing:1px;">Tema: Saúde Mental nas Empresas</div>
-                    <div style="font-size:18px; font-weight:700; color:var(--text); margin-bottom: 8px;">EP #01 • Perdas e mudanças na infância com Ananda Moraes</div>
-                    <div style="color:var(--muted); font-size:14px; line-height: 1.5;">No episódio #01 do Sobre Viver Podcast, eu recebo Ananda Moraes, psicóloga clínica infantil, que atua na abordagem da Análise do Comportamento e também é professora de graduação.
-                        Convidada: Ananda Moraes, psicóloga clínica infantil que atua na abordagem da Análise do Comportamento e professora de graduação.</div>
-                        Falamos sobre um tema sensível e, muitas vezes, pouco nomeado: as perdas e mudanças na infância. Experiências que podem parecer pequenas aos olhos de fora, mas que têm impactos profundos na forma como as crianças sentem, se relaciona e desenvolve.</div>
+                <div class="episode-cover">
+                    <img src="EP1.png" alt="Capa EP #01 — Perdas e mudanças na infância com Ananda Moraes" loading="lazy" />
                 </div>
-                <div style="margin-top:20px; display:flex; gap:10px;">
-                    <a href="https://open.spotify.com/episode/5JtGL7p9AhgOuVkY9welSX?si=aab06813301049f7" target="_blank" class="btn primary" style="padding:8px 15px; font-size:14px; flex:1; text-align:center;">Spotify</a>
-                    <a href="https://www.youtube.com/watch?v=P3oSV9tTLRU&t=1s" target="_blank" class="btn ghost" style="padding:8px 15px; font-size:14px; flex:1; text-align:center;">YouTube</a>
+                <div class="episode-body">
+                    <div>
+                        <div class="episode-theme">Tema: Psicologia Infantil • Análise do Comportamento</div>
+                        <div class="episode-title">EP #01 • Perdas e mudanças na infância com Ananda Moraes</div>
+                        <div class="episode-desc">
+                            <p><b>Convidada:</b> Ananda Moraes, psicóloga clínica infantil que atua na abordagem da Análise do Comportamento e professora de graduação.</p>
+                            <p>Falamos sobre um tema sensível e, muitas vezes, pouco nomeado: as perdas e mudanças na infância. Experiências que podem parecer pequenas aos olhos de fora, mas que têm impactos profundos na forma como a criança sente, se relaciona e se desenvolve.</p>
+                        </div>
+                    </div>
+                    <div class="episode-actions">
+                        <a href="https://open.spotify.com/episode/5JtGL7p9AhgOuVkY9welSX?si=aab06813301049f7" target="_blank" class="btn primary">Spotify</a>
+                        <a href="https://youtu.be/P3oSV9tTLRU?si=RMDZjhuDy1TVCnnD" target="_blank" class="btn ghost">YouTube</a>
+                    </div>
                 </div>
             </div>
 
+            <!-- EP #02 -->
             <div class="service">
-                <div>
-                    <div style="color:var(--muted); font-size:12px; font-weight:700; text-transform:uppercase; margin-bottom:8px; letter-spacing:1px;">Tema: Maternidade | Saúde Mental | Mulher </div>
-                    <div style="font-size:18px; font-weight:700; color:var(--text); margin-bottom: 8px;">EP #02 • Maternidade: Quem cuida de quem cuida? com Lídia Brandes</div>
-                    <div style="color:var(--muted); font-size:14px; line-height: 1.5;">Convidada: Lídia Brandes, psicóloga perinatal, que atua na abordagem da Psicanálise.</div> 
-                    Durante o episódio, falamos sobre as transformações emocionais da maternidade, a sobrecarga invisível, a culpa, o cansaço e a importância de olhar também para quem está cuidando.</div>
+                <div class="episode-cover">
+                    <img src="EP2.png" alt="Capa EP #02 — Maternidade: Quem cuida de quem cuida? com Lídia Brandes" loading="lazy" />
                 </div>
-                <div style="margin-top:20px; display:flex; gap:10px;">
-                    <a href="https://open.spotify.com/episode/2rYOZtElFkISC7H13PsT0G?si=f69024b1063f4b8b" target="_blank" class="btn primary" style="padding:8px 15px; font-size:14px; flex:1; text-align:center;">Spotify</a>
-                    <a href="https://www.youtube.com/watch?v=WJATMwgMaoE&t=336s" target="_blank" class="btn ghost" style="padding:8px 15px; font-size:14px; flex:1; text-align:center;">YouTube</a>
+                <div class="episode-body">
+                    <div>
+                        <div class="episode-theme">Tema: Maternidade | Saúde Mental | Mulher</div>
+                        <div class="episode-title">EP #02 • Maternidade: Quem cuida de quem cuida? com Lídia Brandes</div>
+                        <div class="episode-desc">
+                            <p><b>Convidada:</b> Lídia Brandes, psicóloga perinatal, que atua na abordagem da Psicanálise.</p>
+                            <p>Durante o episódio, falamos sobre as transformações emocionais da maternidade, a sobrecarga invisível, a culpa, o cansaço e a importância de olhar também para quem está cuidando.</p>
+                        </div>
+                    </div>
+                    <div class="episode-actions">
+                        <a href="https://open.spotify.com/episode/2rYOZtElFkISC7H13PsT0G?si=f69024b1063f4b8b" target="_blank" class="btn primary">Spotify</a>
+                        <a href="https://youtu.be/WJATMwgMaoE?si=6CKDWKNTA2SPlMsZ" target="_blank" class="btn ghost">YouTube</a>
+                    </div>
                 </div>
             </div>
+
+            <!-- EP #03 -->
+            <div class="service">
+                <div class="episode-cover">
+                    <img src="EP3.png" alt="Capa EP #03 — Como escolher um caminho sem saber quem sou? com Elaine Prates" loading="lazy" />
+                </div>
+                <div class="episode-body">
+                    <div>
+                        <div class="episode-theme">Tema: Escolhas & Decisão | Autoconhecimento | Orientação Profissional | Identidade</div>
+                        <div class="episode-title">EP #03 • Como escolher um caminho sem saber quem sou? com Elaine Prates</div>
+                        <div class="episode-desc">
+                            <p><b>Convidada:</b> Elaine Prates, neuropsicóloga e orientadora profissional.</p>
+                            <p>Durante o episódio, falamos sobre a pressão de decidir o que fazer da vida ainda na adolescência, o medo de escolher errado, a ansiedade em relação ao futuro e o sentimento de estar perdido enquanto todo mundo parece já ter um caminho definido.</p>
+                        </div>
+                    </div>
+                    <div class="episode-actions">
+                        <a href="https://open.spotify.com/episode/7sd48Zx2H0p0gcRFF1mlDz?si=Yc6SH_3aSXaVsn1DO1WT3g" target="_blank" class="btn primary">Spotify</a>
+                        <a href="https://youtu.be/I4OOKtVqKxY?si=XHTSglGe1w2fyAJ2" target="_blank" class="btn ghost">YouTube</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EP #04 -->
+            <div class="service">
+                <div class="episode-cover">
+                    <img src="EP4.png" alt="Capa EP #04 — Como a psicanálise olha para a infância, com Thula Moreira" loading="lazy" />
+                </div>
+                <div class="episode-body">
+                    <div>
+                        <div class="episode-theme">Tema: Psicanálise | Infância | Desenvolvimento</div>
+                        <div class="episode-title">EP #04 • Como a psicanálise olha para a infância, com Thula Moreira</div>
+                        <div class="episode-desc">
+                            <p><b>Convidada:</b> Thula Moreira, psicóloga e mestre em Psicanálise.</p>
+                            <p>Durante o episódio, falamos sobre a forma como a Psicanálise compreende a infância e sua importância na constituição do sujeito. Discutimos temas como: Clínica psicanalítica da criança, a escuta analítica, o lugar do brincar e outros assuntos.</p>
+                        </div>
+                    </div>
+                    <div class="episode-actions">
+                        <a href="https://open.spotify.com/episode/6OPHbdlqctNJrr477p6XJe?si=sLLKhXUJQa6L_-5FzewFxw" target="_blank" class="btn primary">Spotify</a>
+                        <a href="https://youtu.be/kS9f4fNW07E?si=z0P5LxC-c77VdkQN" target="_blank" class="btn ghost">YouTube</a>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </section>
 
@@ -351,18 +546,18 @@ Falo sobre algo que muitas vezes nos paralisa: a espera pelo momento perfeito e 
         <p style="color:var(--muted);margin-top:8px; font-size: 17px; max-width: 60ch;">Cortes dos melhores momentos do podcast.</p>
         
         <div class="portfolio">
-            <a href="https://www.youtube.com/@yasminnunesrosaa/shorts" target="_blank" class="folio-item">
+            <a href="https://www.youtube.com/shorts/CLikkEt51D8" target="_blank" class="folio-item">
                 <video src="Oquesobreviver.mp4" autoplay muted loop playsinline></video>
                 <div class="overlay">Assistir no YouTube</div>
             </a>
             
-            <a href="https://www.youtube.com/@yasminnunesrosaa/shorts" target="_blank" class="folio-item">
-                <img src="fotoperfil.png" alt="Corte do Podcast" loading="lazy" />
+            <a href="https://www.youtube.com/shorts/e_JwndQCNE8" target="_blank" class="folio-item">
+                <video src="video2.mp4" autoplay muted loop playsinline></video>
                 <div class="overlay">Assistir no YouTube</div>
             </a>
             
-            <a href="https://www.youtube.com/@yasminnunesrosaa/shorts" target="_blank" class="folio-item">
-                <img src="fotoperfil.png" alt="Corte do Podcast" loading="lazy" />
+            <a href="https://www.youtube.com/shorts/sg2D5FPuKPM" target="_blank" class="folio-item">
+                <video src="video3.mp4" autoplay muted loop playsinline></video>
                 <div class="overlay">Assistir no YouTube</div>
             </a>
         </div>
